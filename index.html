@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Crack the Code</title>
+        <link href = "grid_styles.css" rel = "stylesheet">
+    </head>
+    <body id="body" onload="load()">
+        <section id="titleRow">
+            <header>Crack the Code</header>
+        </section>
+
+        <!-- <section id="name">
+            <h1>Crack the Code</h1>
+        </section> -->
+        
+        <section id="puzzle-container" class="clue-container">
+                <p id="CB1">AAA</p>
+                <p id="CB2">BBB</p>
+                <p id="CB3">CCC</p>
+                <p id="CB4">DDD</p>
+        </section>
+        <section id="user-container">
+                <input type="text" onclick="tryFunction('0')" id="input-box0" readonly placeholder="X" >
+                <input type="text" onclick="setBoxFocus('1')" id="input-box1" readonly placeholder="X" >
+                <input type="text" onclick="setBoxFocus('2')" id="input-box2" readonly placeholder="X" >
+        </section>
+        <section id="button-row">
+            <button id = "b0">0</button>
+            <button id = "b1">1</button>
+            <button id = "b2">2</button>
+            <button id = "b3">3</button>
+            <button id = "b4">4</button>
+            <button id = "b5">5</button>
+            <button id = "b6">6</button>
+            <button id = "b7">7</button>
+            <button id = "b8">8</button>
+            <button id = "b9">9</button>
+        </section>
+        <section id="submit-row">
+            <button id = "submit" onclick="submit()">submit</button>
+            <!-- <button id = "playAgain" onclick="playAgain()">play again</button> -->
+        </section>          
+        <div id="answer" contenteditable="true" 
+            onchange="checkAnswer(this.innerHTML)">
+        </div>
+        <section class = "popupLost" id="popup-lost">
+            <p>You didn't succeed...<br>Better luck next time!</p>
+            <button id = "playAgainLost" type = "button" onclick="playAgainLost()">play again</button>
+            <button id = "closeLost" type = "button" onclick="closeLost()">close</button>
+
+        </section>
+        <section class = "popupWon" id="popup-won">
+            <p>You cracked the code!!!</p>
+            <button id = "playAgainWon" type = "button" onclick="playAgainWon()">play again</button>
+            <button id = "closeWon" type = "button" onclick="closeWon()">close</button>
+
+        </section>
+        <section id="aside">
+            <h1>Instructions</h1>
+            <ul>
+                <li>You will be given four clues to guess a three digit code.</li>
+                <li>Digits will not be repeated in the code.</li>
+                <li>There may be multiple correct solutions.</li>
+                <li>You can click on a box to change the digit you want to enter.</li>
+            </ul>
+        </section>
+        <section id="blank"></section>
+
+        <script src = "combined-script.js"></script> 
+
+
+
+    </body>
+</html>

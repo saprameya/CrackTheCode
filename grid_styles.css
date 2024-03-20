@@ -1,0 +1,309 @@
+body{
+    font-family:'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif ;
+    display: grid;
+    grid-template-columns: 2fr 1fr;
+    grid-template-rows: 0.2 fr ifr 0.5fr repeat(auto, 1fr);
+    gap: 20px;
+    grid-row-gap: 10px;
+    grid-area: 
+        "titleRow"
+        "puzzle-container"
+        "user-container"
+        "button-row"
+        "submit-row"
+        "blank"
+        "aside"
+        ;
+    grid-template-areas: none;
+    color: #bbb34a;
+    text-align: center;
+    margin: 0px;
+    padding: 0px;
+    align-items: top;
+    justify-content: center;
+    min-height: 100vh;
+    width: 100vw;
+    background: linear-gradient(135deg, #63346e,#3e5279 );
+    grid-auto-flow: column;
+    grid-template-rows: auto;
+
+}
+
+#aside{
+    display: none;
+}
+
+header{
+    font-size: 3em;
+}
+#titleRow{
+    grid-area: titleRow;
+}
+
+#aside{
+    grid-area: aside;
+    background-color: #3e5279;
+    border-radius: 5px;
+    padding: 1em;
+    /* padding-bottom: 1em; */
+    grid-area: aside;
+    
+}
+ul{
+    padding: 0px;
+}
+li{
+    list-style-type: none;
+}
+#puzzle-container{
+    grid-area: puzzle-container;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    grid-template-rows: 1fr 1fr;
+    grid-area:
+        "CB1"
+        "CB2"
+        "CB3"
+        "CB4";
+    grid-template-areas:
+    "CB1 CB2"
+    "CB3 CB4";
+    align-items: center;
+    font-size: 1.2em;
+}
+
+#CB1{
+    grid-area: CB1;
+}
+#CB2{
+    grid-area: CB2;
+}
+#CB3{
+    grid-area: CB3;
+}
+#CB4{
+    grid-area: CB4;
+}
+
+#user-container{
+    grid-area: user-container;
+    display: grid;
+    padding-left: 30%;
+    padding-right: 30%;
+    grid-template-columns:repeat(5,1fr);
+    grid-template-rows: auto;
+    grid-area: 
+        "InputSpace1" 
+        "input-box0"
+        "input-box1"
+        "input-box2"
+        "InputSpace2";
+    grid-template-areas: 
+        "InputSpace1 input-box0 input-box1 input-box2 InputSpace2";
+    justify-content: center;
+}
+#input-box0{
+    grid-area: input-box0;
+}
+#input-box1{
+    grid-area: input-box1;
+}
+#input-box2{
+    grid-area: input-box2;
+}
+
+input{
+    border-radius: 10px;
+    border:color(from color srgb r g b);
+    font-size: 1.5em;
+    height: 2em;
+    width: 2em;
+    text-align: center;
+    align-items: center;
+    margin-left: auto;
+    margin-right: auto;
+    color: #c0b406;
+    background: linear-gradient(135deg, #6888c9, #b560c9);
+}
+input:focus{
+    border-color: #e9b451;
+    background-color: #ede7ee;
+    color:#f3e413 ;
+    /* background: linear-gradient(135deg, #587dc7, #b24cc9); */
+}
+
+input:hover, button:hover{
+    cursor:pointer;
+    
+    color: #1c65f5;
+
+}
+#button-row{
+    grid-area: button-row;
+    display: grid;
+    gap: 1rem;
+    justify-content: center;
+    align-items: center;
+    grid-area: 
+        "button-0"
+        "button-1"
+        "button-2"
+        "button-3"
+        "button-4"
+        "button-5"
+        "button-6"
+        "button-7"
+        "button-8"
+        "button-9";
+    grid-template-areas:
+        "button-0 button-1 button-2 button-3 button-4"
+        "button-5 button-6 button-7 button-8 button-9";
+}
+button{
+    color: #bbb34a;
+    font-size: 1.5em;
+    width: 2em;
+    height: 2em;
+    border:color(from color srgb r g b);
+    border-radius: 0.5em;
+    background: linear-gradient(135deg,  #43234b, #2d3b57);
+}
+#submit-row{
+    grid-area: submit-row;
+}
+
+#submit{
+    width: fit-content;
+}
+
+#blank{
+    grid-area: blank;
+}
+
+#playAgainWon, #playAgainLost, #closeWon, #closeLost{
+    width: fit-content;
+    margin-right: auto;
+    margin-left: auto;
+    font-size: 0.5em;
+}
+
+#answer{
+
+    display: none;
+}
+
+.popupWon, .popupLost{
+    /* width: 1000vw; */
+    background:#6d5572;
+    position: absolute;
+    width: 50%;
+    height: fit-content;
+    border-radius: 10px;
+    font-size: 2em;
+    padding: 0;
+    display: flex;
+    flex-direction: column;
+    top: 0%;
+    left: 50%;
+    transform: translate(-50%, -50%)scale(0.1);
+    text-align: center;
+    visibility: hidden;
+    transition: transform 0.4s, top 0.4s;
+    justify-content: center;
+}
+
+
+
+.open-popupWon, .open-popupLost{
+
+    visibility: visible;
+    top: 50%;
+    transform: translate(-50%, -50%)scale(1);
+    box-shadow: 5px 10px 15px #373737;
+}
+
+
+@media (min-width:370px) {
+    body{
+        column-gap: 0px;
+        grid-template-columns: 1fr 1fr;
+        grid-template-rows: 0.2fr repeat(2, 1fr) 0.2fr;
+        grid-template-areas: 
+        "titleRow titleRow"
+        "puzzle-container puzzle-container"
+        "user-container user-container"
+        "button-row button-row"
+        "submit-row submit-row";
+    }
+    #aside{
+        display: inherit;
+        grid-column-start: 1;
+        grid-row-start: 2;
+        grid-row-end: 3;
+    }
+    #puzzle-container{
+        grid-row-start: 3;
+    }
+    #user-container{
+        grid-row-start: 4;
+    }
+
+    #button-row{
+        grid-row-start: 5;
+    }
+
+    #submit-row{
+        grid-row-start: 6;
+    }
+    
+    .popupWon, .popupLost{
+        top:60%
+    }
+
+}
+
+@media (min-width:820px) {
+    body{
+        column-gap: 0px;
+        font-size: 2em;
+        grid-template-columns: 1fr 1fr;
+        grid-template-rows: 0.2fr repeat(2, 1fr) 0.2fr;
+        grid-template-areas: 
+        "titleRow titleRow"
+        "puzzle-container puzzle-container"
+        "user-container user-container"
+        "button-row button-row"
+        "submit-row submit-row";
+    }
+   
+
+}
+
+@media (min-width: 1026px) {
+    body {
+        font-size: 1.2em;
+        display: grid; 
+        grid-template-columns: 1fr 1fr 1fr;
+        grid-template-rows: 0.2fr repeat(4, 1fr);
+        grid-template-areas:
+        "titleRow titleRow"
+        "puzzle-container puzzle-container"
+        "user-container user-container"
+        "button-row button-row"
+        "submit-row submit-row"
+        "blank";
+    }
+    #aside{
+        display: inherit;
+        grid-column-start: 3;
+        grid-row-start: 1;
+    }
+   
+    #user-container{
+        align-items: center;
+    }
+    #button-row{
+        row-gap: 0rem;
+    }
+    
+} 
