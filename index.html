@@ -11,9 +11,7 @@
             <header>Crack the Code</header>
         </section>
 
-        <!-- <section id="name">
-            <h1>Crack the Code</h1>
-        </section> -->
+    
         
         <section id="puzzle-container" class="clue-container">
                 <p id="CB1">AAA</p>
@@ -40,7 +38,6 @@
         </section>
         <section id="submit-row">
             <button id = "submit" onclick="submit()">submit</button>
-            <!-- <button id = "playAgain" onclick="playAgain()">play again</button> -->
         </section>          
         <div id="answer" contenteditable="true" 
             onchange="checkAnswer(this.innerHTML)">
@@ -48,25 +45,22 @@
         <section class = "popupLost" id="popup-lost">
             <p>You didn't succeed...<br>Better luck next time!</p>
             <button id = "playAgainLost" type = "button" onclick="playAgainLost()">play again</button>
-            <button id = "closeLost" type = "button" onclick="closeLost()">close</button>
-
+            <div id = "closeLost" onclick="closeLost()">&times</div>
         </section>
         <section class = "popupWon" id="popup-won">
             <p>You cracked the code!!!</p>
             <button id = "playAgainWon" type = "button" onclick="playAgainWon()">play again</button>
-            <button id = "closeWon" type = "button" onclick="closeWon()">close</button>
+            <div id = "closeWon" onclick="closeWon()">&times</div>
 
         </section>
         <section id="aside">
             <h1>Instructions</h1>
-            <ul>
-                <li>You will be given four clues to guess a three digit code.</li>
-                <li>Digits will not be repeated in the code.</li>
-                <li>There may be multiple correct solutions.</li>
-                <li>You can click on a box to change the digit you want to enter.</li>
-            </ul>
+            <p>You will be given four clues to guess a three digit code. </p>
+            <p>Digits will not be repeated in the code. </p>
+            <p>There may be multiple correct solutions. </p>
+            <p>You can click on a box to change the digit you want to enter. </p>
+        
         </section>
-        <section id="blank"></section>
 
         <script src = "combined-script.js"></script> 
 

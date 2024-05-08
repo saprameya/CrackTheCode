@@ -1,40 +1,30 @@
 body{
     font-family:'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif ;
     display: grid;
-    grid-template-columns: 2fr 1fr;
-    grid-template-rows: 0.2 fr ifr 0.5fr repeat(auto, 1fr);
-    gap: 20px;
-    grid-row-gap: 10px;
-    grid-area: 
-        "titleRow"
-        "puzzle-container"
-        "user-container"
-        "button-row"
-        "submit-row"
-        "blank"
-        "aside"
-        ;
-    grid-template-areas: none;
+    column-gap: 1rem;
+    font-size: 2rem;
+    grid-template-columns: 1fr 1fr 1fr;
+    grid-template-rows: 0.3fr 1fr 1fr 0.06fr 1fr 1fr;
+    grid-template-areas: 
+    "titleRow titleRow"
+    "puzzle-container puzzle-container"
+    "puzzle-container puzzle-container"
+    "user-container user-container"
+    "button-row button-row"
+    "submit-row submit-row";
     color: #bbb34a;
     text-align: center;
     margin: 0px;
     padding: 0px;
     align-items: top;
     justify-content: center;
-    min-height: 100vh;
-    width: 100vw;
+    min-height: 100%;
+    width: 100%;
     background: linear-gradient(135deg, #63346e,#3e5279 );
-    grid-auto-flow: column;
-    grid-template-rows: auto;
-
-}
-
-#aside{
-    display: none;
 }
 
 header{
-    font-size: 3em;
+    font-size: 3rem;
 }
 #titleRow{
     grid-area: titleRow;
@@ -42,24 +32,33 @@ header{
 
 #aside{
     grid-area: aside;
+    grid-column-start: 3;
+    grid-row-start: 1;
     background-color: #3e5279;
     border-radius: 5px;
-    padding: 1em;
-    /* padding-bottom: 1em; */
-    grid-area: aside;
+    padding: 1rem;
+    margin-top: 30%;
+    height: fit-content;
+   
     
 }
-ul{
-    padding: 0px;
+
+#aside p{
+    margin: 0;
+    padding: 0;
 }
-li{
-    list-style-type: none;
+
+#aside h1{
+    margin-bottom: 0rem;
 }
+
 #puzzle-container{
     grid-area: puzzle-container;
+    margin-top: 3rem;
     display: grid;
     grid-template-columns: 1fr 1fr;
     grid-template-rows: 1fr 1fr;
+    grid-column-gap: 1rem;
     grid-area:
         "CB1"
         "CB2"
@@ -69,8 +68,13 @@ li{
     "CB1 CB2"
     "CB3 CB4";
     align-items: center;
-    font-size: 1.2em;
+    font-size: 2rem;
 }
+
+#puzzle-container p{
+    margin: 2rem 0;
+}
+
 
 #CB1{
     grid-area: CB1;
@@ -101,6 +105,8 @@ li{
     grid-template-areas: 
         "InputSpace1 input-box0 input-box1 input-box2 InputSpace2";
     justify-content: center;
+    margin: 0;
+    height: fit-content;
 }
 #input-box0{
     grid-area: input-box0;
@@ -115,9 +121,9 @@ li{
 input{
     border-radius: 10px;
     border:color(from color srgb r g b);
-    font-size: 1.5em;
-    height: 2em;
-    width: 2em;
+    font-size: 2rem;
+    height: 3rem;
+    width: 3rem;
     text-align: center;
     align-items: center;
     margin-left: auto;
@@ -129,19 +135,18 @@ input:focus{
     border-color: #e9b451;
     background-color: #ede7ee;
     color:#f3e413 ;
-    /* background: linear-gradient(135deg, #587dc7, #b24cc9); */
 }
 
 input:hover, button:hover{
     cursor:pointer;
-    
     color: #1c65f5;
 
 }
 #button-row{
     grid-area: button-row;
     display: grid;
-    gap: 1rem;
+    column-gap: 1rem;
+    row-gap: 2rem;
     justify-content: center;
     align-items: center;
     grid-area: 
@@ -158,15 +163,18 @@ input:hover, button:hover{
     grid-template-areas:
         "button-0 button-1 button-2 button-3 button-4"
         "button-5 button-6 button-7 button-8 button-9";
+    margin: 5% 0;
+
 }
 button{
     color: #bbb34a;
-    font-size: 1.5em;
-    width: 2em;
-    height: 2em;
+    font-size: 2rem;
+    width: 4rem;
+    height: 4rem;
     border:color(from color srgb r g b);
     border-radius: 0.5em;
     background: linear-gradient(135deg,  #43234b, #2d3b57);
+    text-align: center;
 }
 #submit-row{
     grid-area: submit-row;
@@ -187,28 +195,33 @@ button{
     font-size: 0.5em;
 }
 
+#closeWon, #closeLost{
+    font-size: 2rem;
+    display: block;
+    position: absolute;
+    top: 5%;
+    right: 5%;
+    cursor: pointer;
+}
 #answer{
 
     display: none;
 }
 
 .popupWon, .popupLost{
-    /* width: 1000vw; */
     background:#6d5572;
     position: absolute;
     width: 50%;
-    height: fit-content;
+    height: 50%;
     border-radius: 10px;
-    font-size: 2em;
+    font-size: 3rem;
     padding: 0;
     display: flex;
     flex-direction: column;
-    top: 0%;
-    left: 50%;
-    transform: translate(-50%, -50%)scale(0.1);
+    margin-top: 40vh;
+    left: 10%;
     text-align: center;
     visibility: hidden;
-    transition: transform 0.4s, top 0.4s;
     justify-content: center;
 }
 
@@ -217,39 +230,123 @@ button{
 .open-popupWon, .open-popupLost{
 
     visibility: visible;
-    top: 50%;
-    transform: translate(-50%, -50%)scale(1);
     box-shadow: 5px 10px 15px #373737;
 }
 
 
-@media (min-width:370px) {
+@media only screen and (min-width:370px) and (max-width: 767px) {
     body{
         column-gap: 0px;
         grid-template-columns: 1fr 1fr;
-        grid-template-rows: 0.2fr repeat(2, 1fr) 0.2fr;
+        grid-template-rows: 0fr 0.5fr 2fr 0.2fr;
         grid-template-areas: 
         "titleRow titleRow"
+        "puzzle-container puzzle-container"
         "puzzle-container puzzle-container"
         "user-container user-container"
         "button-row button-row"
         "submit-row submit-row";
+    }
+    #titleRow{
+        height: 3.5rem;
     }
     #aside{
         display: inherit;
         grid-column-start: 1;
         grid-row-start: 2;
         grid-row-end: 3;
+        height: fit-content;
+        font-size: 1rem;
+        margin-top: 0;
     }
+    
     #puzzle-container{
+        margin-top: -2rem;
         grid-row-start: 3;
+        font-size: 1.3rem;
     }
     #user-container{
         grid-row-start: 4;
+        grid-column-gap: 1rem;
     }
 
+    input{
+        font-size: 2rem;
+        height: 3rem;
+        width: 3rem;
+    }
     #button-row{
         grid-row-start: 5;
+    }
+    button{
+        font-size: 1.5rem;
+        height: 3rem;
+        width: 3rem;
+        
+    }
+
+    #submit-row{
+        grid-row-start: 6;
+    }
+
+    .popupWon, .popupLost{
+        font-size: 2rem;
+        left: 25%;
+        margin-top: 80vh;
+    }
+    
+    
+
+}
+
+@media only screen and (min-width:768px) and (max-width: 1023px) {
+    body{
+        column-gap: 0px;
+        grid-template-columns: 1fr 1fr;
+        grid-template-rows: 0fr 0.5fr 2fr 0.2fr;
+        grid-template-areas: 
+        "titleRow titleRow"
+        "puzzle-container puzzle-container"
+        "puzzle-container puzzle-container"
+        "user-container user-container"
+        "button-row button-row"
+        "submit-row submit-row";
+        height: 100vh;
+        
+    }
+    #aside{
+        display: inherit;
+        grid-column-start: 1;
+        
+        grid-row-start: 2;
+        grid-row-end: 3;
+        height: fit-content;
+        font-size: 1rem;
+        margin-top: 0;
+    }
+
+    #puzzle-container{
+        margin-top: -2rem;
+        grid-row-start: 3;
+        font-size: 1.8rem;
+    }
+    #user-container{
+        grid-row-start: 4;
+        grid-column-gap: 1rem;
+    }
+
+    input{
+        font-size: 2rem;
+        height: 3rem;
+        width: 3rem;
+    }
+    #button-row{
+        grid-row-start: 5;
+    }
+    button{
+        font-size: 1.5rem;
+        height: 3rem;
+        width: 3rem;
     }
 
     #submit-row{
@@ -257,53 +354,10 @@ button{
     }
     
     .popupWon, .popupLost{
-        top:60%
+        font-size: 2rem;
+        left: 25%;
+        margin-top: 40vh;
     }
 
 }
 
-@media (min-width:820px) {
-    body{
-        column-gap: 0px;
-        font-size: 2em;
-        grid-template-columns: 1fr 1fr;
-        grid-template-rows: 0.2fr repeat(2, 1fr) 0.2fr;
-        grid-template-areas: 
-        "titleRow titleRow"
-        "puzzle-container puzzle-container"
-        "user-container user-container"
-        "button-row button-row"
-        "submit-row submit-row";
-    }
-   
-
-}
-
-@media (min-width: 1026px) {
-    body {
-        font-size: 1.2em;
-        display: grid; 
-        grid-template-columns: 1fr 1fr 1fr;
-        grid-template-rows: 0.2fr repeat(4, 1fr);
-        grid-template-areas:
-        "titleRow titleRow"
-        "puzzle-container puzzle-container"
-        "user-container user-container"
-        "button-row button-row"
-        "submit-row submit-row"
-        "blank";
-    }
-    #aside{
-        display: inherit;
-        grid-column-start: 3;
-        grid-row-start: 1;
-    }
-   
-    #user-container{
-        align-items: center;
-    }
-    #button-row{
-        row-gap: 0rem;
-    }
-    
-} 

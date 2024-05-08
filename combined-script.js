@@ -178,14 +178,6 @@ function disableElements(){
 }
 
 
-
-// function playAgain(){
-//     alert("here");
-//     popup.classList.remove("open-popup");
-//     location.reload();
-
-// }
-
 //Generate well placed clue
 function generateWPClue(){
 
@@ -228,20 +220,7 @@ function generateWPClue(){
 
     wellPlacedClueArr = clueArray;    
 
-    // *************************************************************************************************************************************************************************************
-
-    // alert("existentNums WP = " + existentNums + "\nnonExistentNums WP = " + nonExistentNums);
-
-    // console.log("wp index = " + wellplacedIndex + " wpNum = " + clueArray[wellplacedIndex]);
-    // console.log("cp1 index = " + corrNotPlacedIndex1 );
-    // console.log("cp2 index = " + corrNotPlacedIndex2 );
-
-    // console.log("existentNums = " + existentNums);
-    // console.log("nonExistentNums = " + nonExistentNums);
-
-    // console.log("wellPlacedClueArr = " + wellPlacedClueArr);
-    
-    // *************************************************************************************************************************************************************************************
+ 
 }
 
 
@@ -274,15 +253,6 @@ function generateTwoCorrectClue(){
     clueArray[wellplacedIndex] = num;
 
 
-    // clueArray = shuffle(clueArray);
-
-    // if(clueArray.includes(wellpacedNum)){
-    //     corrNotPlacedNum1 = wellpacedNum;
-    //     while(clueArray.indexOf(corrNotPlacedNum1) == wellplacedIndex){
-    //         clueArray = shuffle(clueArray);
-    //     }
-    // }
-
     corrNotPlacedIndex1 = clueArray.indexOf(corrNotPlacedNum1);
     corrNotPlacedIndex2 = clueArray.indexOf(corrNotPlacedNum2);
 
@@ -302,22 +272,7 @@ function generateTwoCorrectClue(){
 
 
     twoCorrectClueArr = clueArray;
-        // *************************************************************************************************************************************************************************************
-
-        // alert("existentNums 2C = " + existentNums + "\nnonExistentNums 2C = " + nonExistentNums);
-
-        // *************************************************************************************************************************************************************************************
     
-        // *************************************************************************************************************************************************************************************
-    
-        // console.log("shuffled twoCorrectClueArr = " + twoCorrectClueArr);
-        
-        // console.log("corrNotPlacedIndex1 = " + corrNotPlacedIndex1);
-        // console.log("corrNotPlacedNum1 = " + corrNotPlacedNum1);
-        // console.log("corrNotPlacedIndex2 = " + corrNotPlacedIndex2);
-        // console.log("corrNotPlacedNum2 = " + corrNotPlacedNum2);
-    
-        // *************************************************************************************************************************************************************************************
     
 }
 
@@ -339,14 +294,6 @@ function generateOneCorrectClue(){
         clueArray.push(num);
     }
         
-        // if(wellpacedNum == corrNotPlacedNum1){
-        //     corrNotPlacedNum1 = num;
-        // }
-        // else if (wellpacedNum == corrNotPlacedNum2){
-        //     corrNotPlacedNum2 = num;
-        // }
-    
-    
 
     //Add two numbers that are not already existing numbers
     while(clueArray.length < CLUE_SIZE) {
@@ -360,9 +307,6 @@ function generateOneCorrectClue(){
 
     }
 
-// *************************************************************************************************************************************************************************************
-//   console.log("unshuffled oneCorrectClueArr = " + clueArray);
-// *************************************************************************************************************************************************************************************
 
 let existentNumCount = 0;
 for(let i = 0; i < clueArray.length; i++){
@@ -421,12 +365,7 @@ else if(clueArray.includes(corrNotPlacedNum2)){
     }
 }
 oneCorrectClueArr = clueArray;
-// *************************************************************************************************************************************************************************************
-//   alert("existentNums 1C = " + existentNums + "\nnonExistentNums 1C = " + nonExistentNums);
 
-//    console.log("corrNotPlacedIndex3 = " + corrNotPlacedIndex3);
-//    console.log("corrNotPlacedNum3 = " + corrNotPlacedNum3);
-// *************************************************************************************************************************************************************************************
 }
 
 
@@ -499,19 +438,7 @@ function load(){
   function checkAnswer(answer){
 
 
-    // alert("wellplacedIndex = "+ wellplacedIndex +
-    //         "\n wellpacedNum=" + wellpacedNum +
-    //         "\n corrNotPlacedIndex1=" +corrNotPlacedIndex1 +
-    //         "\n corrNotPlacedNum1=" + corrNotPlacedNum1+
-    //         "\n corrNotPlacedIndex2=" + corrNotPlacedIndex2+
-    //         "\n corrNotPlacedNum2=" + corrNotPlacedNum2+
-    //         "\n corrNotPlacedIndex3=" + corrNotPlacedIndex3+
-    //         "\n corrNotPlacedNum3=" + corrNotPlacedNum3+
-    //         "\n existentNums= " + existentNums+
-    //         "\n nonExistentNums= " + nonExistentNums +
-    //         "\n answer = " + answer 
 
-    //         )
     gameWon = checkWellPlaced(answer);
 
     if(gameWon){
@@ -544,26 +471,19 @@ function checkWellPlaced(answer){
             wellpacedCount++;
         }
     }
-    // alert("wellpacedCount = "+ wellpacedCount);
     if (wellpacedCount != 1){
-        // alert("line 424 ");
 
         gameWon = false;
     }
     else{
 
-        // alert("wpAns = "+ wpAns + "\nanswer.indexOf(wpAns) = "+ answer.indexOf(wpAns) + "\nwellPlacedClueArr.indexOf(wpAns) = "+ wellPlacedClueArr.indexOf(wpAns))
         if(answer.indexOf(wpAns) != wellPlacedClueArr.indexOf(wpAns)){
             gameWon = false;
         }
 
     
     }
-       //******************************************************************************************************************************************************************** */
-    //    alert("well placed gameWon = "+ gameWon);
-       //******************************************************************************************************************************************************************** */
-   
-
+    
     return gameWon;
 } 
 
@@ -585,13 +505,9 @@ function checkTwoCorrect(answer){
         }
 
     }
-    // alert("answer.indexOf(cp1) = "+answer.indexOf(cp1) + "\ntwoCorrectClueArr.indexOf(cp1) = "+twoCorrectClueArr.indexOf(cp1));
 
-
-    // alert("cp1 = " + cp1 + "\ncp2 = "+ cp2 + "\ntwoCorrectCount = "+ twoCorrectCount + "\ntwoCorrectCount == 2: " + (twoCorrectCount == 2));
     
     if(twoCorrectCount == 2){
-        // alert("answer.indexOf(cp1) = " + answer.indexOf(cp1) + "\ntwoCorrectClueArr.indexOf(cp1)" + twoCorrectClueArr.indexOf(cp1));
         
         if(answer.indexOf(cp1)==twoCorrectClueArr.indexOf(cp1)){
             // alert("line 431");
@@ -605,9 +521,7 @@ function checkTwoCorrect(answer){
     else {
         gameWon = false;
     }
-    //******************************************************************************************************************************************************************** */
-    // alert("two corr gameWon = "+ gameWon);
-    //******************************************************************************************************************************************************************** */
+ 
    
     return gameWon;
 }
@@ -632,9 +546,7 @@ function checkOneCorrect(answer){
             }
         }
     }
-       //******************************************************************************************************************************************************************** */
-    //    alert("one corr gameWon = "+ gameWon);
-       //******************************************************************************************************************************************************************** */
+    
    
     return gameWon;
 
@@ -647,27 +559,9 @@ function checkNoCorrect(answer){
             break;
         }
     }
-       //******************************************************************************************************************************************************************** */
-    //    alert("no corr gameWon = "+ gameWon);
-       //******************************************************************************************************************************************************************** */
+    
    
     return gameWon;
 }
 
-var checkClues = document.getElementById("checkClues");
 
-checkClues.addEventListener("click", function(e){
-    alert("wellplacedIndex = "+ wellplacedIndex +
-            "\n wellpacedNum=" + wellpacedNum +
-            "\n corrNotPlacedIndex1=" +corrNotPlacedIndex1 +
-            "\n corrNotPlacedNum1=" + corrNotPlacedNum1+
-            "\n corrNotPlacedIndex2=" + corrNotPlacedIndex2+
-            "\n corrNotPlacedNum2=" + corrNotPlacedNum2+
-            "\n existentNums= " + existentNums+
-            "\n nonExistentNums= " + nonExistentNums 
-
-            )
-
-});
-
-// load();
