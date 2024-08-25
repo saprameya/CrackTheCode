@@ -4,11 +4,9 @@ const ans = ['X','X','X'];
 var popup = document.getElementsByClassName("popup");
 var playAgainLost = document.getElementById("playAgainLost");
 var playAgainWon = document.getElementById("playAgainWon");
-var closeLost = document.getElementById("closeLost");
-var closeWon = document.getElementById("closeWon");
+var closeLost = document.getElementById("close-lost");
+var closeWon = document.getElementById("close-won");
 let gameOver = false;
-
-
 
 const CLUE_SIZE = 3;
 const answer = [];
@@ -29,154 +27,15 @@ let corrNotPlacedIndex1 = -1;
 let corrNotPlacedIndex2 = -1;
 let gameWon = true;
 
-function inputNumber(num){
-    
-    
-    if(inputBox == document.getElementById("input-box0")){
-        ans[0] = num;
-        inputBox.value = ans[0];
-        inputBox= document.getElementById("input-box1");
-    }
-    else if(inputBox == document.getElementById("input-box1")){
-        ans[1] = num;
-        inputBox.value = ans[1];
-        inputBox=document.getElementById("input-box2");
-    }
-    else if(inputBox == document.getElementById("input-box2")){
-        
-        ans[2] = num;
-        inputBox.value = ans[2];
-        inputBox = document.getElementById("");
-    }
-    inputBox.focus();
-    
-}
+load();
 
-var body = document.getElementById("body");
-
-body.addEventListener("click", function(e){
-    if(!gameOver){
-        var elem = e.target;
-        if(elem.type == "submit"){
-            if(elem == document.getElementById("submit"))
-            {
-                submit();
-            }
-            else{
-                if(inputBox == document.getElementById("")){
-                    alert("Please click on a box to input");
-                }    
-                else {
-                    let num = elem.innerText;
-                    inputNumber(num);
-                }
-            }
-            
-        }
-        else if(elem.type == "text"){
-            inputBox = elem;
-            inputBox.focus();
-            
-        }
-        else{
-            inputBox = document.getElementById("");
-        }
-    
-    }
-});
-
-var submit = document.getElementById("submit");
-
-submit.addEventListener("click", function(e){
-
-    if(!gameOver){
-        document.getElementById("input-box0").value = ans[0];
-        document.getElementById("input-box1").value = ans[1];
-        document.getElementById("input-box2").value = ans[2];
-    
-        let ansCount = 0;
-       
-        for(let i = 0; i < ans.length; i++) {
-    
-            if(ans[0] == 'X' || ans[1] == 'X' || ans[2] == 'X'){
-                alert("You must input all three numbers");
-                break;            
-            }
-            if ( isNaN(parseFloat(ans[i])) && !isFinite(ans[i]) ) {
-                alert("You must input all three numbers");
-                break;
-            }
-            if(ans[0] == ans[1] || ans[0] == ans[2] || ans[1] == ans[2]){
-                alert("Duplicate digits is not allowed");
-                break;
-            }
-            else{
-                ansCount++;
-            }
-        
-        }
-        let answerArray = [];
-        for(let i = 0; i < ans.length; i++) {
-            answerArray[i] = parseInt(ans[i]);
-        }
-        
-        if(ansCount == CLUE_SIZE){
-            checkAnswer(answerArray);
-            if (gameWon == false){
-                var popup = document.getElementById("popup-lost");
-                popup.classList.add("open-popupLost");
-            }
-            else {
-                var popup = document.getElementById("popup-won");
-                popup.classList.add("open-popupWon");
-    
-            }
-            
-        }
-    
-    }
-});
-
-
-
-
-playAgainLost.addEventListener("click", function (e){
-    popup = document.getElementById("popup-lost");
-    popup.classList.remove("open-popupLost");
-    location.reload();
-});
-
-playAgainWon.addEventListener("click", function (e){
-    
-    popup = document.getElementById("popup-won");
-    popup.classList.remove("open-popupWon");
-    location.reload();
-
-});
-
-closeLost.addEventListener("click", function (e){
-    popup = document.getElementById("popup-lost");
-    popup.classList.remove("open-popupLost");
-   disableElements();
-});
-
-closeWon.addEventListener("click", function (e){
-    popup = document.getElementById("popup-won");
-    popup.classList.remove("open-popupWon");
-    disableElements();
-
-});
-
-function disableElements(){
-    var input = document.getElementById("input-box0");
-    input.disabled = true;
-    input = document.getElementById("input-box1");
-    input.disabled = true;
-    input = document.getElementById("input-box2");
-    input.disabled = true;
-    submit.disabled = true;
-}
-
+function load(){
+    generateWPClue();
+    generateTwoCorrectClue();
+    generateOneCorrectClue();
+    generateNoCorrClue();    
+    setClues();
+  }
 
 //Generate well placed clue
 function generateWPClue(){
@@ -222,7 +81,6 @@ function generateWPClue(){
 
  
 }
-
 
 //Generate two correct clue
 function generateTwoCorrectClue(){
@@ -368,9 +226,6 @@ oneCorrectClueArr = clueArray;
 
 }
 
-
-
-
 //Generate no correct clue
 function generateNoCorrClue(){
 
@@ -387,7 +242,6 @@ function generateNoCorrClue(){
     }
     noCorrectClueArr = clueArray;
 }
-
 
 function shuffle(array){
     
@@ -406,48 +260,195 @@ function shuffle(array){
 }
 
 function setClues(){
-    let clueArray = [
-        {clue: wellPlacedClueArr.join(""), message:"One number is correct and well placed"},
+    let code1 = wellPlacedClueArr.join("");
+    let code2 = twoCorrectClueArr.join("");
+    let code3 = oneCorrectClueArr.join("");
+    let code4 = noCorrectClueArr.join("");
 
-        {clue:twoCorrectClueArr.join(""), message:"Two numbers are correct but wrongly placed"},
-        {clue:oneCorrectClueArr.join(""), message:"One number is correct but wrongly placed"},
-        {clue:noCorrectClueArr.join(""), message:"Nothing is correct"}
+    let message1 = "One number is correct and well placed";
+    let message2 = "Two numbers are correct but wrongly placed";
+    let message3 = "One number is correct but wrongly placed";
+    let message4 = "Nothing is correct";
+    
+    let clueArray = [
+        {code:code1, message:message1},
+        {code:code2, message:message2},
+        {code:code3, message:message3},
+        {code:code4, message:message4}
 
     ];
+
     clueArray = shuffle(clueArray);
-    let clue1 = clueArray[0].clue +"<br>" + clueArray[0].message;
-    document.getElementById("CB1").innerHTML = clue1;
-    let clue2 = clueArray[1].clue +"<br>" + clueArray[1].message;
-    document.getElementById("CB2").innerHTML = clue2;    
-    let clue3 = clueArray[2].clue +"<br>" + clueArray[2].message;
-    document.getElementById("CB3").innerHTML = clue3;    
-    let clue4 = clueArray[3].clue +"<br>" + clueArray[3].message;
-    document.getElementById("CB4").innerHTML = clue4;
+    
+    document.getElementById("code1").innerHTML = clueArray[0].code;
+    document.getElementById("clue1").innerHTML = clueArray[0].message;
+
+    document.getElementById("code2").innerHTML = clueArray[1].code;
+    document.getElementById("clue2").innerHTML = clueArray[1].message;
+
+    document.getElementById("code3").innerHTML = clueArray[2].code;
+    document.getElementById("clue3").innerHTML = clueArray[2].message;
+
+    document.getElementById("code4").innerHTML = clueArray[3].code;
+    document.getElementById("clue4").innerHTML = clueArray[3].message;
+
+
     
     
 }
 
-function load(){
-    generateWPClue();
-    generateTwoCorrectClue();
-    generateOneCorrectClue();
-    generateNoCorrClue();    
-    setClues();
-  }
 
-  function checkAnswer(answer){
+
+function inputNumber(num){
+    
+    
+    if(inputBox == document.getElementById("input-box0")){
+        ans[0] = num;
+        inputBox.value = ans[0];
+        inputBox= document.getElementById("input-box1");
+    }
+    else if(inputBox == document.getElementById("input-box1")){
+        ans[1] = num;
+        inputBox.value = ans[1];
+        inputBox=document.getElementById("input-box2");
+    }
+    else if(inputBox == document.getElementById("input-box2")){
+        
+        ans[2] = num;
+        inputBox.value = ans[2];
+        inputBox = document.getElementById("");
+    }
+    inputBox.focus();
+    
+}
+
+var body = document.getElementById("body");
+
+body.addEventListener("click", function(e){
+    if(!gameOver){
+        var elem = e.target;
+        if(elem.type == "submit"){
+            if(elem == document.getElementById("submit"))
+            {
+                submit();
+            }
+            else{
+                if(inputBox == document.getElementById("")){
+                    alert("Please click on a box to input");
+                }    
+                else {
+                    let num = elem.innerText;
+                    inputNumber(num);
+                }
+            }
+            
+        }
+        else if(elem.type == "text"){
+            inputBox = elem;
+            inputBox.focus();
+            
+        }
+        else{
+            inputBox = document.getElementById("");
+        }
+    
+    }
+});
+
+var submit = document.getElementById("submit");
+
+submit.addEventListener("click", function(e){
+
+    if(!gameOver){
+        document.getElementById("input-box0").value = ans[0];
+        document.getElementById("input-box1").value = ans[1];
+        document.getElementById("input-box2").value = ans[2];
+    
+        let ansCount = 0;
+       
+        for(let i = 0; i < ans.length; i++) {
+    
+            if(ans[0] == 'X' || ans[1] == 'X' || ans[2] == 'X'){
+                alert("You must input all three numbers");
+                break;            
+            }
+            if ( isNaN(parseFloat(ans[i])) && !isFinite(ans[i]) ) {
+                alert("You must input all three numbers");
+                break;
+            }
+            if(ans[0] == ans[1] || ans[0] == ans[2] || ans[1] == ans[2]){
+                alert("Duplicate digits is not allowed");
+                break;
+            }
+            else{
+                ansCount++;
+            }
+        
+        }
+        let answerArray = [];
+        for(let i = 0; i < ans.length; i++) {
+            answerArray[i] = parseInt(ans[i]);
+        }
+        
+        if(ansCount == CLUE_SIZE){
+            document.getElementById("barrier").style.display = "block";
+            checkAnswer(answerArray);
+            if (gameWon == false){
+                var popup = document.getElementById("popup-lost");
+                popup.classList.add("open-popupLost");
+            }
+            else {
+                var popup = document.getElementById("popup-won");
+                popup.classList.add("open-popupWon");
+    
+            }
+            
+        }
+    
+    }
+});
+
+playAgainLost.addEventListener("click", function (e){
+    popup = document.getElementById("popup-lost");
+    popup.classList.remove("open-popupLost");
+    location.reload();
+});
+
+playAgainWon.addEventListener("click", function (e){
+    
+    popup = document.getElementById("popup-won");
+    popup.classList.remove("open-popupWon");
+    location.reload();
+
+});
+
+closeLost.addEventListener("click", function (e){
+    console.log("close lost");
+    popup = document.getElementById("popup-lost");
+    popup.classList.remove("open-popupLost");
+    
+});
+
+closeWon.addEventListener("click", function (e){
+    popup = document.getElementById("popup-won");
+    popup.classList.remove("open-popupWon");
+    
+
+});
+
+
+
+
+function checkAnswer(answer){
 
 
 
     gameWon = checkWellPlaced(answer);
 
     if(gameWon){
-        // alert("line 349");
         gameWon = checkTwoCorrect(answer);
-        // alert("line 351");
 
         if(gameWon){
-        // alert("line 366");
 
             gameWon = checkOneCorrect(answer);
             if(gameWon){
@@ -465,7 +466,6 @@ function checkWellPlaced(answer){
     let wellpacedCount = 0;
 
     for(let i = 0; i < answer.length; i++){
-        // alert("wellPlacedClueArr.includes(answer[i]) = "+ wellPlacedClueArr.includes(answer[i]));
         if(wellPlacedClueArr.includes((answer[i]))){
             wpAns = answer[i];
             wellpacedCount++;
@@ -510,7 +510,6 @@ function checkTwoCorrect(answer){
     if(twoCorrectCount == 2){
         
         if(answer.indexOf(cp1)==twoCorrectClueArr.indexOf(cp1)){
-            // alert("line 431");
             gameWon = false;
         }
         if (answer.indexOf(cp2)==twoCorrectClueArr.indexOf(cp2)){
@@ -563,5 +562,3 @@ function checkNoCorrect(answer){
    
     return gameWon;
 }
-
-
