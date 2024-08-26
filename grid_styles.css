@@ -1,7 +1,7 @@
 :root{
     --header-color: hsl(291, 38%, 30%);
     --body-color: hsl(291, 38%, 50%);
-    --font-color: hsl(60, 100%, 80%);
+    --font-color: hsl(60, 100%, 50%);
     --input-bg-color:hsl(60, 100%, 80%);
     --btn-bg-color:hsl(291, 38%, 30%);
     --clue-color-light: hsl(291, 38%, 70%);
@@ -45,17 +45,17 @@ header{
 
 .popup{
     position: absolute;
-    top: 0;
+    padding: 1rem;
+    top: 30%;
     left: 0;
     min-width: calc(100svw/2);
-    min-height: 50%;
+    min-height: 30%;
     background-color: var(--header-color);
     border: 1.5px solid var(--header-color);
     border-radius: 0.5rem;
     box-shadow: 0.5px 0.5px 20px;
     transform: translate(calc(100svw/4), 50%);
     font-size: clamp(1.5rem, 3cqi, 5rem);
-    display: flex;
     align-items: center;
     justify-content: center;
     z-index: 100;
@@ -68,6 +68,12 @@ header{
     right: 0;
     padding: 1rem;
     cursor: pointer;
+}
+
+.close-button:hover{
+    background-color: rgba(0, 0, 0, 0.24);
+    border-radius: 3rem;
+    aspect-ratio: 1/1;
 }
 
 .open-popupLost{
@@ -83,7 +89,7 @@ header{
     position: absolute;
     background-color: hsla(0, 0%, 0%, 0.726);
     min-width: 100%;
-    min-height: 100svh;
+    min-height: 100%;
     z-index: 50;
 }
 
@@ -129,7 +135,7 @@ main{
     grid-template-rows: repeat(2, 1fr);
     max-width: 100svw;
     min-height: 30svh;
-    font-size: clamp(1rem, 2cqi, 16px);
+    font-size: clamp(1rem, 4cqi, 16px);
     margin: 0 0 5rem 0;
     gap: 0.5rem;
 
@@ -254,15 +260,13 @@ button:hover, button:focus{
 
 }
 
-@media print{
-    main{
-        grid-template-columns: 1fr;
-        grid-template-rows: auto 1fr;
+@media (prefers-color-scheme: dark){
+    :root{
+        --header-color:hsl(0, 0%, 0%);
+        --body-color: hsl(291, 38%, 30%);
+        --clue-color-light: var(--clue-color-dark);
+ 
     }
-
-    .instructions{
-        grid-row: 1/1;
-        min-width: 100svw;
-    }
-
 }
+
+
