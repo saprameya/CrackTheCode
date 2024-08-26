@@ -85,9 +85,9 @@ header{
 }
 
 .barrier{
-    display: none;
+    /* display: none; */
     position: absolute;
-    background-color: hsla(0, 0%, 0%, 0.726);
+    background-color: hsla(0, 0%, 0%, 0.5);
     min-width: 100%;
     min-height: 100%;
     z-index: 50;
@@ -265,7 +265,8 @@ button:hover, button:focus{
         --header-color:hsl(0, 0%, 0%);
         --body-color: hsl(291, 38%, 30%);
         --clue-color-light: var(--clue-color-dark);
- 
+        --input-bg-color:hsl(60, 100%, 80%);
+        
     }
 }
 
