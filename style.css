@@ -223,12 +223,13 @@ button:active {
 
 	h1 {
 		text-shadow: none;
-		text-shadow: 2px 0 hsl(0, 0%, 91%), -2px 2px 0 hsl(0, 0%, 91%),
-			-2px -2px 0 hsl(0, 0%, 91%), 2px -2px 0 hsl(0, 0%, 91%),
-			0px 0px 0 hsl(0, 0%, 51%), 1px 1px 0 hsl(0, 0%, 45%),
-			2px 2px 0 hsl(0, 0%, 39%), 3px 3px 0 hsl(0, 0%, 33%),
-			4px 4px 0 hsl(0, 0%, 27%), 5px 5px 0 hsl(0, 0%, 21%),
-			6px 6px 0 hsl(0, 0%, 15%), 7px 7px 6px hsla(0, 0%, 0%, 0.6),
+		text-shadow: 
+			/* 2px 0 hsl(0, 0%, 91%), -2px 2px 0 hsl(0, 0%, 91%), */
+			/* -2px -2px 0 hsl(0, 0%, 91%), 2px -2px 0 hsl(0, 0%, 91%), */
+			0px 0px 0 hsl(269, 54%, 41%), 1px 1px 0 hsl(269, 54%, 36%),
+			2px 2px 0 hsl(269, 54%, 30%), 3px 3px 0 hsl(269, 54%, 24%),
+			4px 4px 0 hsl(269, 54%, 18%), 5px 5px 0 hsl(269, 54%,12%),
+			6px 6px 0 hsl(269, 54%, 6%), 7px 7px 6px hsla(0, 0%, 0%, 0.6),
 			7px 7px 1px hsla(0, 0%, 0%, 0.5), 0px 0px 6px hsla(0, 0%, 0%, 0.2);
 	}
 }

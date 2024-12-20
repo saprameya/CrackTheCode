@@ -21,7 +21,6 @@ const playAgainBtn = document.querySelector('.play-again-btn');
 const arrowDown = document.querySelector('.arrow-down');
 const arrowUp = document.querySelector('.arrow-up');
 
-
 let clueCodes = [
 	wPArray.join(''),
 	twoCorrArr.join(''),
@@ -66,26 +65,36 @@ answers.forEach((input) => {
 	});
 });
 
+answers.forEach((input) => {
+	input.addEventListener('keydown', (e) => {
+		e.preventDefault();
+		if (activeInput.value === NaN) {
+			alert('Please enter a number from 0-9 only');
+			activeInput.value = '';
+		}
+	});
+});
+
 buttons.forEach((button) => {
 	button.addEventListener('click', (e) => {
 		e.preventDefault();
-		if(activeInput === null) alert('Please click on a box to enter your answer')
+		if (activeInput === null)
+			alert('Please click on a box to enter your answer');
 		activeInput.value = button.value;
 		activeInput = activeInput.nextElementSibling;
-
 	});
 });
 
 instructions.addEventListener('click', (e) => {
 	console.log(`first`);
-	if (instructionsList.classList.contains('expand'))
-		{instructionsList.classList.remove('expand');
-			arrowDown.style.display = 'inline';
-			arrowUp.style.display = 'none';
-		}
-	else {instructionsList.classList.add('expand');
+	if (instructionsList.classList.contains('expand')) {
+		instructionsList.classList.remove('expand');
+		arrowDown.style.display = 'inline';
+		arrowUp.style.display = 'none';
+	} else {
+		instructionsList.classList.add('expand');
 		arrowDown.style.display = 'none';
-			arrowUp.style.display = 'inline';
+		arrowUp.style.display = 'inline';
 	}
 });
 
