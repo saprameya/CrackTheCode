@@ -64,6 +64,11 @@ body {
 	background-color: var(--main-bg-color);
 	color: var(--main-font-color);
 }
+.play-again-btn:active {
+	margin-top: 10vh;
+	background-color: var(--main-font-color);
+	color: var(--main-bg-color);
+}
 
 .over {
 	display: block;
@@ -81,13 +86,10 @@ h1 {
 	background-color: var(--main-font-color);
 	color: var(--main-bg-color);
 	text-align: center;
-	text-shadow: 2px 0 var(--main-font-color), -2px 2px 0 var(--main-font-color),
-		-2px -2px 0 var(--main-font-color), 2px -2px 0 var(--main-font-color),
-		0px 0px 0 hsl(0, 0%, 71%), 1px 1px 0 hsl(0, 0%, 65%),
+	text-shadow: 0px 0px 0 hsl(0, 0%, 71%), 1px 1px 0 hsl(0, 0%, 65%),
 		2px 2px 0 hsl(0, 0%, 59%), 3px 3px 0 hsl(0, 0%, 53%),
 		4px 4px 0 hsl(0, 0%, 48%), 5px 5px 0 hsl(0, 0%, 42%),
-		6px 6px 0 hsl(0, 0%, 36%), 7px 7px 6px hsla(0, 0%, 0%, 0.6),
-		7px 7px 1px hsla(0, 0%, 0%, 0.5), 0px 0px 6px hsla(0, 0%, 0%, 0.2);
+		6px 6px 0 hsl(0, 0%, 36%);
 }
 
 .instructions {
@@ -116,7 +118,6 @@ h1 {
 
 .instructions h5 {
 	text-align: center;
-	/* text-decoration: underline; */
 	padding: 5px;
 	cursor: pointer;
 }
@@ -178,7 +179,6 @@ button {
 	color: var(--main-bg-color);
 	border-radius: 10px;
 	font-size: 1.2rem;
-	/* font-size: clamp(1rem, 1vw + 0.5rem, 2rem); */
 	text-align: center;
 	padding: 1.2vw;
 	border: 3px solid rgb(229, 233, 32);
@@ -187,6 +187,8 @@ button {
 
 button:active {
 	box-shadow: inset 5px 5px 20px hsl(0, 0%, 40%);
+	background-color: var(--main-bg-color);
+	color: var(--main-font-color);
 }
 
 .btn-container {
@@ -216,15 +218,14 @@ button:active {
 @media (prefers-color-scheme: dark) {
 	body {
 		--main-font-color: #fffbbe;
-		--main-bg-color: #a374d5;
+		--main-bg-color: hsl(269, 54%, 65%);
 		--answer-bg-color: #babade;
 		background-color: var(--main-bg-color);
 	}
 
 	h1 {
-		text-shadow: none;
-		text-shadow: 0px 0px 0 hsl(269, 54%, 41%), 1px 1px 0 hsl(269, 54%, 36%),
-			2px 2px 0 hsl(269, 54%, 30%), 3px 3px 0 hsl(269, 54%, 24%),
-			4px 4px 0 hsl(269, 54%, 18%), 5px 5px 0 hsl(269, 54%, 12%);
+		text-shadow: 0px 0px 0 hsl(269, 54%, 63%), 1px 1px 0 hsl(269, 54%, 57%),
+			2px 2px 0 hsl(269, 54%, 51%), 3px 3px 0 hsl(269, 54%, 45%),
+			4px 4px 0 hsl(269, 54%, 39%), 5px 5px 0 hsl(269, 54%, 33%);
 	}
 }
