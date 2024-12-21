@@ -1,5 +1,5 @@
 const instructions = document.querySelector('#instructions');
-const instructionsList = document.querySelector('#instructions-list');
+const istructionsWrapper = document.querySelector('.instructions-wrapper');
 const form = document.getElementById('puzzle-form');
 let clue1 = document.getElementById('clue1');
 let clue2 = document.getElementById('clue2');
@@ -88,12 +88,12 @@ buttons.forEach((button) => {
 
 instructions.addEventListener('click', (e) => {
 	console.log(`first`);
-	if (instructionsList.classList.contains('expand')) {
-		instructionsList.classList.remove('expand');
+	if (istructionsWrapper.classList.contains('expand')) {
+		istructionsWrapper.classList.remove('expand');
 		arrowDown.style.display = 'inline';
 		arrowUp.style.display = 'none';
 	} else {
-		instructionsList.classList.add('expand');
+		istructionsWrapper.classList.add('expand');
 		arrowDown.style.display = 'none';
 		arrowUp.style.display = 'inline';
 	}

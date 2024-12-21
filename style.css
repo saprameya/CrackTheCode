@@ -112,7 +112,11 @@ h1 {
 	display: none;
 }
 .instructions-wrapper {
-	display: block;
+	display: none;
+	opacity: 0;
+	transition-property: display opacity;
+	transition-behavior: allow-discrete;
+	transition-duration: 1s;
 	width: 80%;
 	margin-left: auto;
 	margin-right: auto;
@@ -120,9 +124,13 @@ h1 {
 	background-color: var(--main-font-color);
 }
 
-/* .instructions.expand {
-	min-height: 100%;
-} */
+.instructions-wrapper.expand {
+	display: block;
+	opacity: 1;
+	@starting-style{
+		opacity: 0;
+	}
+}
 
 .instructions h5 {
 	text-align: center;
@@ -131,11 +139,7 @@ h1 {
 }
 
 #instructions-list {
-	display: none;
-	opacity: 0;
-	transition-property: display opacity;
-	transition-behavior: allow-discrete;
-	transition-duration: 1s;
+	
 
 	border: 1px solid var(--main-font-color);
 	border-top: none;
@@ -143,14 +147,14 @@ h1 {
 
 }
 
-#instructions-list.expand {
+/* #instructions-list.expand {
 	display: block;
 	opacity: 1;
 	@starting-style{
 		opacity: 0;
 	}
 
-}
+} */
 .instructions li {
 	list-style: none;
 	padding: 5px;
