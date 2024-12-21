@@ -21,7 +21,7 @@ const playAgainBtn = document.querySelector('.play-again-btn');
 const arrowDown = document.querySelector('.arrow-down');
 const arrowUp = document.querySelector('.arrow-up');
 
-activeInput.style.border = '2px #a374d5 solid';
+activeInput.classList.add('active');
 
 
 let clueCodes = [
@@ -64,8 +64,11 @@ for (let index = 0; index < 4; index++) {
 answers.forEach((input) => {
 	input.addEventListener('click', (e) => {
 		e.preventDefault();
+		activeInput.classList.remove('active');
 		activeInput = input;
-		input.style.border = '2px #a374d5 solid';
+		console.log(input.id);
+		input.classList.add('active');
+
 	});
 });
 
@@ -86,9 +89,15 @@ buttons.forEach((button) => {
 		if (activeInput === null)
 			alert('Please click on a box to enter your answer');
 		activeInput.value = button.value;
-		activeInput.style.border = '1.3px #a374d5 solid';
-		activeInput = activeInput.nextElementSibling;
-		activeInput.style.border = '2px #a374d5 solid';
+		activeInput.classList.remove('active');
+		if (activeInput.nextElementSibling !== null) {
+			activeInput = activeInput.nextElementSibling;
+			
+		}else{
+			activeInput = input1;
+		}
+		activeInput.classList.add('active');
+
 
 	});
 });
