@@ -21,6 +21,9 @@ const playAgainBtn = document.querySelector('.play-again-btn');
 const arrowDown = document.querySelector('.arrow-down');
 const arrowUp = document.querySelector('.arrow-up');
 
+activeInput.style.border = '2px #a374d5 solid';
+
+
 let clueCodes = [
 	wPArray.join(''),
 	twoCorrArr.join(''),
@@ -62,12 +65,13 @@ answers.forEach((input) => {
 	input.addEventListener('click', (e) => {
 		e.preventDefault();
 		activeInput = input;
+		input.style.border = '2px #a374d5 solid';
 	});
 });
 
 answers.forEach((input) => {
 	input.addEventListener('keydown', (e) => {
-		alert('Please use the puzzle buttons to enter your answer')
+		alert('Please use the puzzle buttons to enter your answer');
 		e.preventDefault();
 		if (activeInput.value === NaN) {
 			alert('Please enter a number from 0-9 only');
@@ -82,7 +86,10 @@ buttons.forEach((button) => {
 		if (activeInput === null)
 			alert('Please click on a box to enter your answer');
 		activeInput.value = button.value;
+		activeInput.style.border = '1.3px #a374d5 solid';
 		activeInput = activeInput.nextElementSibling;
+		activeInput.style.border = '2px #a374d5 solid';
+
 	});
 });
 

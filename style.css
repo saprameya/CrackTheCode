@@ -147,14 +147,7 @@ h1 {
 
 }
 
-/* #instructions-list.expand {
-	display: block;
-	opacity: 1;
-	@starting-style{
-		opacity: 0;
-	}
 
-} */
 .instructions li {
 	list-style: none;
 	padding: 5px;
@@ -190,12 +183,14 @@ form {
 .answer {
 	margin: 10px;
 	font-size: 1.3rem;
-	border-color: var(--main-font-color);
+	border:  1.3px solid var(--main-font-color);
 	width: 2rem;
 	height: 2rem;
 	text-align: center;
 	box-shadow: inset 3px 3px 3px hsl(0, 0%, 80%);
 }
+
+
 
 button {
 	background-color: var(--main-font-color);
@@ -206,12 +201,14 @@ button {
 	padding: 1.2vw;
 	border: 3px solid rgb(229, 233, 32);
 	box-shadow: 5px 5px 20px hsl(0, 0%, 40%);
+	transition: all 0.2s ease-in-out;
 }
 
 button:active {
 	box-shadow: inset 5px 5px 20px hsl(0, 0%, 40%);
 	background-color: var(--main-bg-color);
 	color: var(--main-font-color);
+	scale: 1.1;
 }
 
 .btn-container {
