@@ -116,7 +116,7 @@ h1 {
 	opacity: 0;
 	transition-property: display opacity;
 	transition-behavior: allow-discrete;
-	transition-duration: 1s;
+	transition-duration: 0.5s;
 	width: 80%;
 	margin-left: auto;
 	margin-right: auto;
