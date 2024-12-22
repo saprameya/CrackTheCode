@@ -38,7 +38,10 @@ function checkWP(answer) {
 	let count = 0;
 	for (let index = 0; index < answer.length; index++) {
 		if (answer.includes(wPArray[index])) {
-			if (answer.indexOf(wPArray[index]) != index) winning = false;
+			if (answer.indexOf(wPArray[index]) != index) {
+				winning = false;
+				break;
+			}
 			count++;
 		}
 	}
@@ -50,7 +53,10 @@ function checkTwoCorr(answer) {
 	let count = 0;
 	for (let index = 0; index < answer.length; index++) {
 		if (answer.includes(twoCorrArr[index])) {
-			if (answer.indexOf(twoCorrArr[index]) === index) winning = false;
+			if (answer.indexOf(twoCorrArr[index]) === index) {
+				winning = false;
+				break;
+			}
 			count++;
 		}
 	}
@@ -62,7 +68,10 @@ function checkOneCorr(answer) {
 	let count = 0;
 	for (let index = 0; index < answer.length; index++) {
 		if (answer.includes(oneCorrArr[index])) {
-			if (answer.indexOf(oneCorrArr[index]) === index) winning = false;
+			if (answer.indexOf(oneCorrArr[index]) === index) {
+				winning = false;
+				break;
+			}
 			count++;
 		}
 	}
@@ -72,6 +81,9 @@ function checkOneCorr(answer) {
 
 function checkNoCorr(answer) {
 	for (let index = 0; index < answer.length; index++) {
-		if (answer.includes(noCorrArr[index])) winning = false;
+		if (answer.includes(noCorrArr[index])) {
+			winning = false;
+			break;
+		}
 	}
 }

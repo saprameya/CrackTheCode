@@ -35,11 +35,10 @@ body {
 .message-modal {
 	display: none;
 	opacity: 0;
-	transition-property: display opacity;
+	transition-property: opacity;
 	transition-duration: 1s;
-	transition-behavior: allow-discrete;
-	min-height: 90vh;
-	min-width: 80vw;
+	min-height: 80vh;
+	min-width: 70vw;
 	z-index: 120;
 	position: absolute;
 	top: 0%;
@@ -50,6 +49,8 @@ body {
 	justify-content: center;
 	padding-top: 30vh;
 	font-size: 2rem;
+	box-shadow: 2px 2px 5px black;
+	border-radius: 7px;
 }
 
 .close {
@@ -62,7 +63,7 @@ body {
 .message-modal.show {
 	display: block;
 	opacity: 1;
-	@starting-style{
+	@starting-style {
 		opacity: 0;
 	}
 }
@@ -90,7 +91,7 @@ body {
 	margin: 10px auto;
 }
 h1 {
-	width: 100%;
+	width: 100vw;
 	background-color: var(--main-font-color);
 	color: var(--main-bg-color);
 	text-align: center;
@@ -111,10 +112,12 @@ h1 {
 .arrow-up {
 	display: none;
 }
+
+
 .instructions-wrapper {
 	display: none;
 	opacity: 0;
-	transition-property: display opacity;
+	transition-property: opacity;
 	transition-behavior: allow-discrete;
 	transition-duration: 0.5s;
 	width: 80%;
@@ -127,7 +130,7 @@ h1 {
 .instructions-wrapper.expand {
 	display: block;
 	opacity: 1;
-	@starting-style{
+	@starting-style {
 		opacity: 0;
 	}
 }
@@ -139,14 +142,10 @@ h1 {
 }
 
 #instructions-list {
-	
-
 	border: 1px solid var(--main-font-color);
 	border-top: none;
 	padding: 15px;
-
 }
-
 
 .instructions li {
 	list-style: none;
@@ -183,19 +182,16 @@ form {
 .answer {
 	margin: 10px;
 	font-size: 1.3rem;
-	border:  1.3px solid var(--main-font-color);
+	border: 1.3px solid var(--main-font-color);
 	width: 2rem;
 	height: 2rem;
 	text-align: center;
 	box-shadow: inset 3px 3px 3px hsl(0, 0%, 80%);
 }
 
-.answer.active{
-	border:  2px solid var(--main-font-color);
-
+.answer.active {
+	border: 2px solid var(--main-font-color);
 }
-
-
 
 button {
 	background-color: var(--main-font-color);
@@ -208,9 +204,8 @@ button {
 	box-shadow: 5px 5px 20px hsl(0, 0%, 40%);
 	transition: all 0.2s ease-in-out;
 }
-
-button:active {
-	box-shadow: inset 5px 5px 20px hsl(0, 0%, 40%);
+button:focus {
+	box-shadow: inset 2px 2px 5px hsl(0, 0%, 70%);
 	background-color: var(--main-bg-color);
 	color: var(--main-font-color);
 	scale: 1.1;
@@ -254,13 +249,11 @@ button:active {
 			4px 4px 0 hsl(269, 54%, 39%), 5px 5px 0 hsl(269, 54%, 33%);
 	}
 
-	.answer{
-	border:  1.3px solid black;
-
+	.answer {
+		border: 1.3px solid black;
 	}
 
-	.answer.active{
-	border:  2px solid black;
-
+	.answer.active {
+		border: 2px solid black;
 	}
 }
