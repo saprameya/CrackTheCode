@@ -37,26 +37,32 @@ body {
 	opacity: 0;
 	transition-property: opacity;
 	transition-duration: 1s;
-	min-height: 80vh;
+	/* min-height: 80vh; */
 	min-width: 70vw;
 	z-index: 120;
 	position: absolute;
-	top: 0%;
+	top: 15%;
 	transform: translateY(10vh);
 	background-color: var(--main-font-color);
 	color: var(--main-bg-color);
 	text-align: center;
 	justify-content: center;
-	padding-top: 30vh;
+	padding: 3vw;
 	font-size: 2rem;
 	box-shadow: 2px 2px 5px black;
 	border-radius: 7px;
 }
 
+.message-modal .message {
+	padding-top: 10vh;
+}
+
 .close {
-	position: absolute;
+	float: right;
+	/* margin: 0 1vw; */
+	/* position: absolute;
 	top: 3%;
-	right: 5%;
+	right: 5%; */
 	cursor: pointer;
 }
 
@@ -69,7 +75,7 @@ body {
 }
 
 .play-again-btn {
-	margin-top: 10vh;
+	margin: 5vh 0;
 	background-color: var(--main-bg-color);
 	color: var(--main-font-color);
 }
@@ -112,7 +118,6 @@ h1 {
 .arrow-up {
 	display: none;
 }
-
 
 .instructions-wrapper {
 	display: none;
