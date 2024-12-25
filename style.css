@@ -22,6 +22,8 @@ body {
 	background-color: var(--main-bg-color);
 }
 
+
+
 .black-out {
 	display: none;
 	position: absolute;
@@ -104,7 +106,12 @@ h1 {
 }
 
 .instructions {
+	font-size: 0.8em;
+	font-weight: bolder;
 	min-width: 50%;
+	text-align: center;
+	cursor: pointer;
+	padding: 5px;
 }
 
 .arrow-down {
@@ -136,16 +143,14 @@ h1 {
 	}
 }
 
-.instructions h5 {
-	text-align: center;
-	padding: 5px;
-	cursor: pointer;
-}
+
 
 #instructions-list {
 	border: 1px solid var(--main-font-color);
 	border-top: none;
 	padding: 15px;
+	font-size: 1em;
+	font-weight: normal;
 }
 
 .instructions li {
