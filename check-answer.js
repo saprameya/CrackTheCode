@@ -26,7 +26,7 @@ function checkAnswer(answer) {
 	} else {
 		checkWP(answer);
 		if (winning) message.innerText = `Congratulations,\nyou won!`;
-		else message.innerText = 'You lost... Better luck next time!';
+		else message.innerText = 'You lost... \nBetter luck next time!';
 
 		blackOut.classList.add('over');
 		messageModal.classList.add('show');
