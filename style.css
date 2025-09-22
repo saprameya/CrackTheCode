@@ -118,8 +118,16 @@ main {
   color: #000;
 }
 
-.button-wrapper > button:nth-child(10) {
-  grid-area: 4/2;
+.button-wrapper > button:nth-child(11) {
+  grid-area: 4/3;
+}
+
+#backspace{
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin: auto;
 }
 .submit-btn-wrapper{
   width: 100%;

@@ -48,13 +48,21 @@
             <button class="button number-btn" value="8">8</button>
             <button class="button number-btn" value="9">9</button>
             <button class="button number-btn" value="0">0</button>
+            <button id="backspace" class="button number-btn" value="">
+              <svg width="29" height="21" viewBox="0 0 29 21" fill="none" xmlns="http://www.w3.org/2000/svg">
+                <path
+                  d="M12.0088 0.0458984H29V20.0693H12.0088V20.1152L11.9551 20.0693H11.8379V19.9697L0.166992 10.0576L11.8379 0.144531V0.0458984H11.9551L12.0088 0V0.0458984ZM3.25586 10.0566L12.6904 18.0693H27V2.0459H12.6895L3.25586 10.0566ZM21.2188 9.53906L23.9043 6.40723L25.2061 7.92578L22.6504 10.9062L25.3428 13.4756L24.1943 15.1133L21.3623 12.4092L18.3066 15.9756L17.0049 14.457L19.9307 11.043L16.6426 7.9043L17.791 6.26758L21.2188 9.53906Z"
+                  fill="black"
+                />
+              </svg>
+            </button>
           </div>
           <div class="submit-btn-wrapper">
             <button class="button" id="submit">Submit</button>
             <button id="clear" class="button" onclick="location.reload()">New Puzzle</button>
           </div>
         </form>
-        
+
         <div id="dialog">
           <p id="message"></p>
         </div>
