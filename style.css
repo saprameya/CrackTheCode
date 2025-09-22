@@ -89,6 +89,10 @@ main {
   color: #000;
 }
 
+.ans-box.active{
+  background-color: lightgreen;
+}
+
 .answer-wrapper {
   display: flex;
   gap: 1rem;

@@ -41,7 +41,7 @@ const existent = new Set();
 const nonExistent = new Set();
 
 let currentAnsBox = $("#ans1"); //to recieve user set value
-
+$("#ans1").addClass("active");
 let hasWon = new Array();
 const wrongVal = new Array();
 
@@ -291,17 +291,22 @@ $().ready(() => {
 
   // set currentAnsBox if user clicks on an input box
   $(".ans-box").on("click", function (e) {
+    $(currentAnsBox).toggleClass("active");
     currentAnsBox = $(this);
+    $(currentAnsBox).toggleClass("active");
     e.preventDefault();
   });
 
   //set value of input box and move active input box to the next box
   $(".number-btn").click((e) => {
+    currentAnsBox.val(e.currentTarget.value);
+    $(currentAnsBox).toggleClass("active");
+    currentAnsBox = currentAnsBox.next();
+    $(currentAnsBox).toggleClass("active");
     if (currentAnsBox.length == 0) {
+      $("#ans1").addClass("active");
       currentAnsBox = $("#ans1");
     }
-    currentAnsBox.val(e.currentTarget.value);
-    currentAnsBox = currentAnsBox.next();
     e.preventDefault();
   });
 
@@ -309,21 +314,20 @@ $().ready(() => {
   $("#submit").click((e) => {
     const answer = [];
     let ansIsValid = true;
-    
+
     $(".ans-box").each(function () {
       const num = parseInt($(this).val());
       if (!$(this).val()) {
         showAlert("Please fill all 3 boxes");
-        return ansIsValid = false;
+        return (ansIsValid = false);
       } else if (!$.isNumeric(num)) {
         showAlert("Please enter numbers from 0 to 9 only.");
-        return ansIsValid = false;
+        return (ansIsValid = false);
       }
-      
 
       if (num < 0 || num > 9) {
         showAlert("Please enter numbers from 0 to 9 only.");
-        return ansIsValid = false;
+        return (ansIsValid = false);
       }
       answer.push(num);
     });
@@ -332,7 +336,7 @@ $().ready(() => {
 
     if (ansIsValid && answerSet.length !== answer.length) {
       showAlert("Duplicate numbers not allowed");
-      return ansIsValid = false;
+      return (ansIsValid = false);
     }
     if (ansIsValid) {
       checkAnswer(answer);
