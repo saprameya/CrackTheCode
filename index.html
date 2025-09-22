@@ -1,65 +1,78 @@
 <!DOCTYPE html>
 <html lang="en">
-	<head>
-		<meta charset="UTF-8" />
-		<meta
-			name="viewport"
-			content="width=
-    , initial-scale=1.0"
-		/>
-		<title>Crack The Code</title>
-		<link rel="stylesheet" href="style.css" />
-		<script src="clue-script.js" defer></script>
-		<script src="load-script.js" defer></script>
-		<script src="check-answer.js" defer></script>
-		
-	</head>
-	<body>
-		<div class="wrapper">
-			<div class="black-out" id="black-out"></div>
-			<div class="message-modal">
-				<div class="close">&times</div>
-				<div class="message"></div>
-					<button class="play-again-btn">Play Again</button></div>
-			<h1>Crack the Code</h1>
-			<div class="instructions">
-				<div id="instructions"> Instructions<span class="arrow-down">&#9662</span> <span class="arrow-up">&#9652</span></div>
-				<div class="instructions-wrapper">
-					<ul id="instructions-list">
-						<li>You will be given four clues to guess a three digit code.</li>
-						<li>Digits will not be repeated in the code.</li>
-						<li>There may be multiple correct solutions.</li>
-						<li>You can click on a box to change the digit you want to enter.</li>
-					</ul>
-				</div>
-			</div>
-			<div class="clue-container">
-				<div class="clue" id="clue1"></div>
-				<div class="clue" id="clue2"></div>
-				<div class="clue" id="clue3"></div>
-				<div class="clue" id="clue4"></div>
-			</div>
-			<form id="puzzle-form">
-				<div class="ans-container">
-					<input type="text" class="answer" id="input1" name="input1" readonly="readonly" aria-label="code digit 1"/>
-					<input type="text" class="answer" id="input2" name="input2" readonly="readonly"aria-label="code digit 2"/>
-					<input type="text" class="answer" id="input3" name="input3" readonly="readonly" aria-label="code digit 3"/>
-				</div>
-				<div class="btn-container">
-					<button class="number" value="" style="display: none"></button>
-					<button class="number" value="0">0</button>
-					<button class="number" value="1">1</button>
-					<button class="number" value="2">2</button
-					><button class="number" value="3">3</button
-					><button class="number" value="4">4</button
-					><button class="number" value="5">5</button
-					><button class="number" value="6">6</button
-					><button class="number" value="7">7</button
-					><button class="number" value="8">8</button
-					><button class="number" value="9">9</button>
-				</div>
-				<button class="submit-btn" type="submit">Check Answer</button>
-			</form>
-		</div>
-	</body>
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Crack the Code</title>
+    <link rel="stylesheet" href="style.css" />
+    <link rel="stylesheet" href="jquery-ui/jquery-ui.min.css" />
+  </head>
+  <body>
+    <header><h1>Crack the Code</h1></header>
+    <main>
+      <div class="puzzle">
+        <section class="clues">
+          <div class="clue">
+            <p id="clue1">Clue 1 text</p>
+            <p>Two numbers are correct but wrongly placed.</p>
+          </div>
+          <div class="clue">
+            <p id="clue2">Clue 2 text</p>
+            <p>One number is correct and well placed.</p>
+          </div>
+          <div class="clue">
+            <p id="clue3">Clue 3 text</p>
+            <p>
+              One number is correct and <u><b>not</b></u> well placed.
+            </p>
+          </div>
+          <div class="clue">
+            <p id="clue4">Clue 4 text</p>
+            <p>Nothing is correct.</p>
+          </div>
+        </section>
+        <form class="answer">
+          <div class="answer-wrapper">
+            <input type="text" id="ans1" class="ans-box" />
+            <input type="text" id="ans2" class="ans-box" />
+            <input type="text" id="ans3" class="ans-box" />
+          </div>
+          <div class="button-wrapper">
+            <button class="button number-btn" value="1">1</button>
+            <button class="button number-btn" value="2">2</button>
+            <button class="button number-btn" value="3">3</button>
+            <button class="button number-btn" value="4">4</button>
+            <button class="button number-btn" value="5">5</button>
+            <button class="button number-btn" value="6">6</button>
+            <button class="button number-btn" value="7">7</button>
+            <button class="button number-btn" value="8">8</button>
+            <button class="button number-btn" value="9">9</button>
+            <button class="button number-btn" value="0">0</button>
+          </div>
+          <div class="submit-btn-wrapper">
+            <button class="button" id="submit">Submit</button>
+            <button id="clear" class="button" onclick="location.reload()">New Puzzle</button>
+          </div>
+        </form>
+        
+        <div id="dialog">
+          <p id="message"></p>
+        </div>
+      </div>
+      <div class="instructions">
+        <h3>Instructions</h3>
+
+        <ul>
+          <li>You will be given four clues to guess a three digit code.</li>
+          <li>Digits will not be repeated in the code.</li>
+          <li>There may be multiple correct solutions.</li>
+          <li>You can click on a box to change the digit you want to enter.</li>
+        </ul>
+      </div>
+    </main>
+
+    <script src="jquery-ui/external/jquery/jquery.js"></script>
+    <script src="jquery-ui/jquery-ui.min.js"></script>
+    <script src="script.js"></script>
+  </body>
 </html>
