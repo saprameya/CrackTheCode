@@ -299,15 +299,22 @@ $().ready(() => {
 
   //set value of input box and move active input box to the next box
   $(".number-btn").click((e) => {
-    currentAnsBox.val(e.currentTarget.value);
-    $(currentAnsBox).toggleClass("active");
-    currentAnsBox = currentAnsBox.next();
-    $(currentAnsBox).toggleClass("active");
-    if (currentAnsBox.length == 0) {
-      $("#ans1").addClass("active");
-      currentAnsBox = $("#ans1");
+    if (e.currentTarget.id === "backspace") {
+      currentAnsBox.val(e.currentTarget.value);
+      e.preventDefault();
     }
-    e.preventDefault();
+    
+    else if(e.currentTarget.id !== "backspace") {
+      currentAnsBox.val(e.currentTarget.value);
+      $(currentAnsBox).toggleClass("active");
+      currentAnsBox = currentAnsBox.next();
+      $(currentAnsBox).toggleClass("active");
+      if (currentAnsBox.length == 0) {
+        $("#ans1").addClass("active");
+        currentAnsBox = $("#ans1");
+      }
+      e.preventDefault();
+    }
   });
 
   //get submitted answer
