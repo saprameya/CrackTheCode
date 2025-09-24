@@ -275,9 +275,15 @@ $().ready(() => {
   oneClue();
   noneCorrect();
 
-      $( "#accordion" ).accordion({
-      collapsible: true
-    });
+  $("#instructions-header").click((e)=>{
+    $("#instructions-header").next().slideToggle();
+    if($("#arrow").html() === "▲"){
+      $("#arrow").html("▼") ;
+    }else{
+      $("#arrow").html("▲");
+    }
+    
+  })
 
   //shuffle order of clues
   const clueArray = Array.from($(".clue"));
@@ -369,7 +375,6 @@ $().ready(() => {
 });
 
 function showAlert(message) {
-  
   $("#dialog").dialog({
     autoOpen: false,
     show: {
@@ -381,8 +386,8 @@ function showAlert(message) {
       duration: 1000,
     },
     position: {
-      my: "center",
-      at: "center",
+      my: "center ",
+      at: "center ",
       of: $(".puzzle"),
     },
     modal: true,

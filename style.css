@@ -7,7 +7,7 @@
 :root {
   font-family: Verdana, Geneva, Tahoma, sans-serif;
   --primary-color: rgb(145, 57, 145);
-  --font-color: hsl(60, 100%, 50%);
+  --font-color: rgba(255, 255, 0);
 
   background-color: var(--primary-color);
   color: var(--font-color);
@@ -31,37 +31,29 @@ h1 {
 main {
   display: flex;
   flex-wrap: wrap;
+  margin-inline: 1rem;
   min-height: 100vh;
-  flex-direction: row-reverse;
 }
 .puzzle {
   position: relative;
   display: flex;
   width: 70%;
   min-width: 300px;
-  padding-inline: 1rem;
+
   flex-direction: column;
   justify-content: space-around;
   align-items: center;
   border-right: 2px solid var(--font-color);
 }
-#accordion {
+.instructions {
   width: 30%;
   min-width: 300px;
   margin-top: 10%;
-  background-color: var(--primary-color);
+  padding-left: 2rem;
 }
 
-#ui-id-1,
-#ui-id-2{
-  width: 100%;
-  border: none;
-  min-height: fit-content;
-  border-radius: 0;
-}
-
-#accordion li{
-  list-style-type:disc;
+#arrow.collapse{
+rotate: 180deg;
 }
 
 .clues {
@@ -196,7 +188,9 @@ button.disabled{
     width: 100vw;
   }
 
-  
+  main{
+    flex-direction: column-reverse;
+  }
 
   .puzzle {
     width: 100%;
@@ -212,10 +206,10 @@ button.disabled{
 
 
 
-  #accordion {
+  .instructions {
     width: 100%;
+    padding: 2rem;
     margin: 0;
-    
   }
 
   .instructions > * {
