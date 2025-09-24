@@ -52,8 +52,8 @@ main {
   padding-left: 2rem;
 }
 
-#instructions-header:active #arrow{
-  transform: rotate(180deg);
+#arrow.collapse{
+rotate: 180deg;
 }
 
 .clues {

@@ -277,6 +277,12 @@ $().ready(() => {
 
   $("#instructions-header").click((e)=>{
     $("#instructions-header").next().slideToggle();
+    if($("#arrow").html() === "▲"){
+      $("#arrow").html("▼") ;
+    }else{
+      $("#arrow").html("▲");
+    }
+    
   })
 
   //shuffle order of clues
