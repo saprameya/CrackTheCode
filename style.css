@@ -57,6 +57,7 @@ main {
   width: 100%;
   border: none;
   min-height: fit-content;
+  border-radius: 0;
 }
 
 #accordion li{
