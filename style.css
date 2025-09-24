@@ -50,6 +50,12 @@ main {
   min-width: 300px;
   margin-top: 10%;
   padding-left: 2rem;
+  
+}
+
+#instructions-header{
+  text-decoration: underline;
+  text-underline-offset: 0.1rem;
 }
 
 #arrow.collapse{
