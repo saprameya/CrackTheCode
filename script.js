@@ -275,6 +275,10 @@ $().ready(() => {
   oneClue();
   noneCorrect();
 
+      $( "#accordion" ).accordion({
+      collapsible: true
+    });
+
   //shuffle order of clues
   const clueArray = Array.from($(".clue"));
   shuffleArray(clueArray);
