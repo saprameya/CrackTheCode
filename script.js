@@ -275,6 +275,10 @@ $().ready(() => {
   oneClue();
   noneCorrect();
 
+  $("#instructions-header").click((e)=>{
+    $("#instructions-header").next().slideToggle();
+  })
+
   //shuffle order of clues
   const clueArray = Array.from($(".clue"));
   shuffleArray(clueArray);

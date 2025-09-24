@@ -52,6 +52,10 @@ main {
   padding-left: 2rem;
 }
 
+#instructions-header:active #arrow{
+  transform: rotate(180deg);
+}
+
 .clues {
   min-width: 60%;
   min-height: 50vh;
