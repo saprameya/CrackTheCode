@@ -275,15 +275,17 @@ $().ready(() => {
   oneClue();
   noneCorrect();
 
-  $("#instructions-header").click((e)=>{
+  if (window.matchMedia("screen and (max-width: 1024px)").matches) {
     $("#instructions-header").next().slideToggle();
-    if($("#arrow").html() === "▲"){
-      $("#arrow").html("▼") ;
-    }else{
+  }
+  $("#instructions-header").click((e) => {
+    $("#instructions-header").next().slideToggle();
+    if ($("#arrow").html() === "▲") {
+      $("#arrow").html("▼");
+    } else {
       $("#arrow").html("▲");
     }
-    
-  })
+  });
 
   //shuffle order of clues
   const clueArray = Array.from($(".clue"));
@@ -312,9 +314,7 @@ $().ready(() => {
     if (e.currentTarget.id === "backspace") {
       currentAnsBox.val(e.currentTarget.value);
       e.preventDefault();
-    }
-    
-    else if(e.currentTarget.id !== "backspace") {
+    } else if (e.currentTarget.id !== "backspace") {
       currentAnsBox.val(e.currentTarget.value);
       $(currentAnsBox).toggleClass("active");
       currentAnsBox = currentAnsBox.next();
