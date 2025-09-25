@@ -276,10 +276,10 @@ $().ready(() => {
   noneCorrect();
 
   if (window.matchMedia("screen and (max-width: 1024px)").matches) {
-    $("#instructions-header").next().slideToggle();
+    $("#instructions-header").next().slideToggle("slow");
   }
   $("#instructions-header").click((e) => {
-    $("#instructions-header").next().slideToggle();
+    $("#instructions-header").next().slideToggle("slow");
     if ($("#arrow").html() === "▲") {
       $("#arrow").html("▼");
     } else {
