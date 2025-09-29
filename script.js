@@ -357,16 +357,14 @@ $().ready(() => {
     }
     if (ansIsValid) {
       checkAnswer(answer);
-      $("#submit").addClass("disabled");
       $("#submit").prop("disabled", true);
 
       $(".number-btn").each(function () {
         $(this).prop("disabled", true);
-        $(this).addClass("disabled");
+
       });
       $(".ans-box").each(function () {
         $(this).prop("disabled", true);
-        $(this).addClass("disabled");
       });
     }
 
