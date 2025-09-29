@@ -194,7 +194,7 @@ function checkWP(answer) {
   if (correctCount !== 1) {
     wpProblems[0] = false;
 
-    probString += `\n-Answer must contain one and only one number from this clue`;
+    probString += `\n-Answer must contain exactly one number from this clue`;
   }
   if (wpProblems.includes(false)) wpProblems[1] = heading + probString;
   return wpProblems;
@@ -221,7 +221,7 @@ function checkTwoCorrect(answer) {
   }
   if (correctCount !== 2) {
     twoCorrProblems[0] = false;
-    probString += `\n-Answer must contain two and only two numbers from this clue`;
+    probString += `\n-Answer must contain exactly two numbers from this clue`;
   }
   if (twoCorrProblems.includes(false)) twoCorrProblems[1] = heading + probString;
   return twoCorrProblems;
@@ -249,7 +249,7 @@ function checkOneCorrect(answer) {
   if (correctCount !== 1) {
     oneCorrProblems[0] = false;
 
-    probString += `\n-Answer must contain one and only one number from this clue`;
+    probString += `\n-Answer must contain exactly one number from this clue`;
   }
   if (oneCorrProblems.includes(false)) oneCorrProblems[1] = heading + probString;
   return oneCorrProblems;
