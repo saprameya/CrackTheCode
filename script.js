@@ -326,6 +326,13 @@ $().ready(() => {
       e.preventDefault();
     }
   });
+  ///////////////////////////////////////////////////////////////////////////////////////////////////////////////
+  console.log(`wpIndex: ${wpIndex}`);
+  console.log(`wpNum: ${wpNum}`);
+  console.log(`notWpIndex1: ${notWpIndex1}`);
+  console.log(`notWpNum1: ${notWpNum1}`);
+  console.log(`notWpIndex2: ${notWpIndex2}`);
+  console.log(`notWpNum2: ${notWpNum2}`);
 
   //get submitted answer
   $("#submit").click((e) => {
