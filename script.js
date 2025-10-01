@@ -129,10 +129,10 @@ function oneClue() {
     rearrange(temp, wpNum, wpIndex, false);
   }
   if (temp.includes(notWpNum1)) {
-    rearrange(temp, notWpNum1, notWpIndex1, true);
+    rearrange(temp, notWpNum1, notWpIndex2, true);
   }
   if (temp.includes(notWpNum2)) {
-    rearrange(temp, notWpNum2, notWpIndex2, true);
+    rearrange(temp, notWpNum2, notWpIndex1, true);
   }
 
   for (const num of temp) {
