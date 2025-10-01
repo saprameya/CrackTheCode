@@ -129,10 +129,10 @@ function oneClue() {
     rearrange(temp, wpNum, wpIndex, false);
   }
   if (temp.includes(notWpNum1)) {
-    rearrange(temp, notWpNum1, notWpIndex2, true);
+    rearrange(temp, notWpNum1, notWpIndex2, false);
   }
   if (temp.includes(notWpNum2)) {
-    rearrange(temp, notWpNum2, notWpIndex1, true);
+    rearrange(temp, notWpNum2, notWpIndex1, false);
   }
 
   for (const num of temp) {
@@ -326,13 +326,6 @@ $().ready(() => {
       e.preventDefault();
     }
   });
-  ///////////////////////////////////////////////////////////////////////////////////////////////////////////////
-  console.log(`wpIndex: ${wpIndex}`);
-  console.log(`wpNum: ${wpNum}`);
-  console.log(`notWpIndex1: ${notWpIndex1}`);
-  console.log(`notWpNum1: ${notWpNum1}`);
-  console.log(`notWpIndex2: ${notWpIndex2}`);
-  console.log(`notWpNum2: ${notWpNum2}`);
 
   //get submitted answer
   $("#submit").click((e) => {
