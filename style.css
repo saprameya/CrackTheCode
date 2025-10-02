@@ -18,8 +18,7 @@ body {
 }
 
 header {
-  position: fixed;
-  z-index: 10;
+ 
   width: 100vw;
   padding-right: 30%;
   background-color: var(--font-color);
