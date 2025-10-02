@@ -190,6 +190,16 @@ button:disabled{
   background-color: transparent;
 }
 
+.ui-dialog .ui-dialog-buttonpane{
+  background-color: var(--font-color);
+  border: none;
+}
+
+#dialog-confirm > p > span{
+  display: inline-block;
+  margin-right: 0.5rem;
+}
+
 @media (max-width: 1024px) {
   h1 {
     width: 100vw;
