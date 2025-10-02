@@ -125,7 +125,7 @@ main {
 }
 
 .button {
-  width: 2.5rem;
+  width: 3rem;
   aspect-ratio: 1;
   border-radius: 0.5rem;
   font-size: 1.2rem;
@@ -240,7 +240,7 @@ button:disabled{
   }
 
   #submit, #clear{
-    width: fit-content;
+    width: 100%;
     margin-inline: auto;
   }
 
