@@ -59,7 +59,7 @@
           </div>
           <div class="submit-btn-wrapper">
             <button class="button" id="submit">Submit</button>
-            <button id="clear" class="button" onclick="location.reload()">New Puzzle</button>
+            <button id="clear" class="button" >New Puzzle</button>
           </div>
         </form>
 
@@ -67,10 +67,13 @@
           <p id="message"></p>
         </div>
       </div>
+      <div id="dialog-confirm" title="">
+        <p><span class="ui-icon ui-icon-alert" style="float: left; margin: 12px 12px 20px 0"></span>Are you sure?</p>
+      </div>
       <div class="instructions">
         <h3 id="instructions-header"><span id="arrow">&#9660;</span> Instructions</h3>
 
-        <ul >
+        <ul>
           <li>You will be given four clues to guess a three digit code.</li>
           <li>Enter numbers between 0 and 9 in each box.</li>
           <li>The highlighted box will be set to the value of the number button clicked.</li>

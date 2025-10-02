@@ -6,6 +6,10 @@ const oneCorrect = new Array();
 const wellPlaced = new Array();
 const noCorrect = new Array();
 
+const answer = [];
+
+let gameOver = false;
+
 function shuffleArray(array) {
   // Shuffle using Fisher–Yates
   for (let i = array.length - 1; i > 0; i--) {
@@ -269,6 +273,28 @@ function checkAnswer(answer) {
 }
 
 $().ready(() => {
+  $("#dialog-confirm").dialog({
+    autoOpen: false,
+    resizable: false,
+    height: "auto",
+    width: 400,
+    modal: true,
+    show: {
+      effect: "blind",
+      duration: 1000,
+    },
+    hide: {
+      effect: "blind",
+      duration: 1000,
+    },
+    position: {
+      my: "center ",
+      at: "center ",
+      of: $(".puzzle"),
+    },
+    modal: true,
+    width: 300,
+  });
   //set clues
   twoClue();
   wpClue();
@@ -327,9 +353,9 @@ $().ready(() => {
     }
   });
 
-  //get submitted answer
+  //get submitted answer after confirmation
   $("#submit").click((e) => {
-    const answer = [];
+    answer.length = 0;
     let ansIsValid = true;
 
     $(".ans-box").each(function () {
@@ -348,26 +374,29 @@ $().ready(() => {
       }
       answer.push(num);
     });
-
     const answerSet = Array.from(new Set(answer));
-
-    if (ansIsValid && answerSet.length !== answer.length) {
+    if (answerSet.length !== answer.length) {
       showAlert("Duplicate numbers not allowed");
       return (ansIsValid = false);
     }
     if (ansIsValid) {
-      checkAnswer(answer);
-      $("#submit").prop("disabled", true);
-
-      $(".number-btn").each(function () {
-        $(this).prop("disabled", true);
-
-      });
-      $(".ans-box").each(function () {
-        $(this).prop("disabled", true);
-      });
+      if (!gameOver) {
+        showConfirmation("Submit answer?", "Submit", submitAnswer);
+      } else {
+        submitAnswer();
+      }
     }
 
+    e.preventDefault();
+  });
+
+  //confirm whether to generate new puzzle
+  $("#clear").click((e) => {
+    if (!gameOver) {
+      showConfirmation("All progress will be lost!", "New Puzzle", newPuzzle);
+    }else{
+      newPuzzle();
+    }
     e.preventDefault();
   });
 });
@@ -394,4 +423,44 @@ function showAlert(message) {
 
   $("#dialog").dialog("open");
   $("#message").text(message);
+}
+
+function showConfirmation(title, btnText, callback) {
+  $("#dialog-confirm").dialog({
+    title: title,
+  });
+  $("#dialog-confirm").dialog("option", "buttons", [
+    {
+      text: btnText,
+      click: function () {
+        $(this).dialog("close");
+        if (typeof callback === "function") {
+          callback();
+        }
+      },
+    },
+    {
+      text: "Cancel",
+      click: function () {
+        $(this).dialog("close");
+      },
+    },
+  ]);
+  $("#dialog-confirm").dialog("open");
+}
+
+function submitAnswer() {
+  checkAnswer(answer);
+  $(".number-btn").each(function () {
+    $(this).prop("disabled", true);
+  });
+  $(".ans-box").each(function () {
+    $(this).prop("disabled", true);
+  });
+  $("#submit").text("Result");
+  gameOver = true;
+}
+
+function newPuzzle() {
+  window.location.reload();
 }
