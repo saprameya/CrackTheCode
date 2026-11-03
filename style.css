@@ -94,7 +94,7 @@ main {
 }
 
 .ans-box {
-  font-size: 1.5rem;
+  font-size: 1.8rem;
   text-align: center;
   background-color: #fff;
   color: #000;
@@ -111,14 +111,13 @@ main {
 }
 
 .answer-wrapper input {
-  width: 6rem;
+  width: 5rem;
   aspect-ratio: 1;
   border-radius: 0.5rem;
 }
 
 .button-wrapper {
   padding-block: 1rem;
-  /* width: 100%; */
   display: grid;
   gap: 1rem;
   grid-template-columns: repeat(3, 4rem);
@@ -152,7 +151,7 @@ main {
 
 #submit,
 #clear {
-  width: 15ch;
+  width: 13ch;
   padding: 0.5rem;
   aspect-ratio: unset;
   margin: auto;
